@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "diagnostics": true,
+    "inlineSourceMap": false,
+    "inlineSources": false,
+    "sourceMap": true,
+    "declaration": true,
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "declarationDir": "typings",
+    "stripInternal": true,
+    "pretty": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["react", "node"],
+    "jsx": "react",
+    "lib": ["dom", "es5", "es2015", "es2015.promise", "es7"]
+  },
+  "exclude": ["node_modules", "dist"],
+  "include": ["src/**/*"]
+}

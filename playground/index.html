@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HotKeys - React component for shortcut definition</title>
+    <script src="https://npmcdn.com/react@15.6.1/dist/react.js"></script>
+    <script src="https://npmcdn.com/react-dom@15.6.1/dist/react-dom.js"></script>
+</head>
+<body>
+    <div id="wrapper"></div>
+    <script src="lib/hotkeys.js"></script>
+    <script>
+        
+        function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+        function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+        function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+        var Text = function (_React$Component) {
+        _inherits(Text, _React$Component);
+
+        function Text(props) {
+            _classCallCheck(this, Text);
+
+            var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
+
+            _this.state = {
+            examples: [{
+                label: 'Basic example',
+                combination: 'cmd+a'
+            }],
+            definition: 'cmd + a',
+            content: '',
+            activeOption: 0
+            };
+            return _this;
+        }
+
+        Text.prototype.renderOptions = function renderOptions() {
+            var arr = this.state.examples.map(function (option, i) {
+            return React.createElement(
+                'option',
+                { key: i, value: i },
+                option.label
+            );
+            });
+            return arr;
+        };
+
+        Text.prototype.handleHotkeyDefinition = function handleHotkeyDefinition(value) {
+            console.log(this.state.examples.length - 1);
+            var cleanedExamples = this.state.examples.filter(function (e) {
+            return e.label !== 'Custom example';
+            });
+            this.setState({
+            examples: [].concat(cleanedExamples, [{ label: 'Custom example', combination: value }]),
+            definition: value,
+            activeOption: this.state.examples.length > 1 ? this.state.examples.length - 1 : 1
+            });
+        };
+
+        Text.prototype.handleOptionChange = function handleOptionChange(value) {
+            this.setState({ activeOption: value, definition: this.state.examples[value].combination });
+        };
+
+        Text.prototype.render = function render() {
+            var _this2 = this;
+
+            var combination = this.state.examples[this.state.activeOption].combination;
+            return React.createElement(
+            'div',
+            null,
+            React.createElement(
+                'select',
+                { value: this.state.activeOption, onChange: function onChange(e) {
+                    return _this2.handleOptionChange(e.target.value);
+                } },
+                this.renderOptions()
+            ),
+            React.createElement('input', { type: 'text', value: this.state.definition, onChange: function onChange(e) {
+                return _this2.handleHotkeyDefinition(e.target.value);
+                } }),
+            React.createElement(HotKeys.default, {handlers: {'cmd+a': () => alert(1)}, enabled: true}, React.createElement('textarea', { onChange: function onChange(e) {
+                return _this2.setState({ content: e.value });
+            } }))
+            );
+        };
+
+        return Text;
+        }(React.Component);
+    
+        ReactDOM.render(React.createElement(Text, null), document.querySelector('#wrapper'));
+    </script>
+</body>
+</html>
