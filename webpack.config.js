@@ -24,9 +24,9 @@ const cfg = {
 
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'hotkeys.js',
+    filename: 'flareon.js',
     libraryTarget: 'umd',
-    library: 'HotKeys'
+    library: 'Flareon'
   },
 
   plugins: [
@@ -36,7 +36,7 @@ const cfg = {
 
 if (process.env.NODE_ENV.toString() === 'production') {
   console.log('\nBuilding production bundle...\n');
-  cfg.output.filename = 'hotkeys.min.js';
+  cfg.output.filename = 'flareon.min.js';
 } else {
   console.log('\nBuilding development bundle...\n');
 }
