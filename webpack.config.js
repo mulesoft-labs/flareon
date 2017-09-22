@@ -7,6 +7,11 @@ const cfg = {
 
   entry: './index.ts',
 
+  entry: {
+    "flareon": "./index.ts",
+    "flareon.min": "./index.ts",
+  },
+
   resolve: {
     modules: [rootPath, 'node_modules'],
     extensions: ['.js', '.ts', '.tsx']
@@ -24,21 +29,19 @@ const cfg = {
 
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'flareon.js',
+    filename: '[name].js',
     libraryTarget: 'umd',
     library: 'Flareon'
   },
 
   plugins: [
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      include: /\.min\.js$/,
+      minimize: true
+    })
   ]
 };
 
-if (process.env.NODE_ENV.toString() === 'production') {
-  console.log('\nBuilding production bundle...\n');
-  cfg.output.filename = 'flareon.min.js';
-} else {
-  console.log('\nBuilding development bundle...\n');
-}
 
 module.exports = cfg;

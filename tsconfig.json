@@ -9,7 +9,7 @@
     "declaration": true,
     "outDir": "dist",
     "moduleResolution": "node",
-    "declarationDir": "typings",
+    "declarationDir": "dist/typings",
     "stripInternal": true,
     "pretty": true,
     "forceConsistentCasingInFileNames": true,

@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "React component for shortcut management.",
   "main": "dist/index.js",
+  "typings": "dist/typings/index.d.ts",
   "scripts": {
     "start": "npm run build:dev; `npm bin`/serve playground",
     "clear:dist": "rm -rf dist && mkdir dist",
-    "build": "npm run clear:dist && NODE_ENV=production webpack -p --progress --config webpack.config.js && npm run update:playground",
-    "build:dev": "npm run clear:dist && NODE_ENV=development webpack --progress --config webpack.config.js && npm run update:playground",
+    "build": "npm run clear:dist && NODE_ENV=development webpack --progress --config webpack.config.js && npm run update:playground",
     "build:watch": "npm run clear:dist && NODE_ENV=development webpack  --watch --progress --config webpack.config.js && npm run update:playground",
-    "update:playground": "(mkdir -p playground/lib || true) && cp dist/flareon*.js playground/lib/flareon.js",
+    "update:playground": "(mkdir -p playground/lib || true) && cp dist/flareon.js playground/lib/flareon.js",
     "release": "oddish",
     "test": "jest"
   },
