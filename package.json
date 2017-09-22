@@ -2,7 +2,7 @@
   "name": "flareon",
   "version": "1.0.0",
   "description": "React component for shortcut management.",
-  "main": "dist/index.js",
+  "main": "dist/flareon.js",
   "typings": "dist/typings/index.d.ts",
   "scripts": {
     "start": "npm run build:dev; `npm bin`/serve playground",
