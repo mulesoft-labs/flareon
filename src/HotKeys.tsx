@@ -173,10 +173,16 @@ class HotKeys extends React.PureComponent<IProps> {
     return this.createMatcherResult('combination', [this.getCharCode(trimmedMatcher)]);
   };
 
+  handleBlur = () => {
+    if (this.props.onBlur) {
+      this.props.onBlur();
+    }
+  }
+
   render() {
     const { children } = this.props;
     return (
-      <div tabIndex={0} onKeyDown={this.handleKeyDown} style={{ outline: 'none' }}>
+      <div tabIndex={0} onKeyDown={this.handleKeyDown} style={{ outline: 'none' }} onBlur={this.handleBlur}>
         {children}
       </div>
     );

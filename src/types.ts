@@ -12,6 +12,7 @@ export interface IProps {
   handlers: HandlerDictionary;
   enabled: boolean;
   ttl?: number;
+  onBlur?: () => void;
 }
 
 export interface IMatcherCatalog {
