@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="wrapper"></div>
-    <script src="lib/hotkeys.js"></script>
+    <script src="lib/flareon.js"></script>
     <script>
         
         function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -83,7 +83,7 @@
             React.createElement('input', { type: 'text', value: this.state.definition, onChange: function onChange(e) {
                 return _this2.handleHotkeyDefinition(e.target.value);
                 } }),
-            React.createElement(HotKeys.default, {handlers: {'cmd+a': () => alert(1)}, enabled: true}, React.createElement('textarea', { onChange: function onChange(e) {
+            React.createElement(Flareon.default, {handlers: {'cmd+a': () => alert(1)}, enabled: true}, React.createElement('textarea', { onChange: function onChange(e) {
                 return _this2.setState({ content: e.value });
             } }))
             );
