@@ -2256,6 +2256,10 @@ var HotKeys = /** @class */ (function (_super) {
             }
             return _this.createMatcherResult('combination', [_this.getCharCode(trimmedMatcher)]);
         };
+        _this.onRef = function (element) {
+            _this.mainDiv = element;
+            _this.mainDiv.focus();
+        };
         return _this;
     }
     HotKeys.prototype.componentDidMount = function () {
@@ -2266,7 +2270,7 @@ var HotKeys = /** @class */ (function (_super) {
     };
     HotKeys.prototype.render = function () {
         var children = this.props.children;
-        return (React.createElement("div", { tabIndex: 0, onKeyDown: this.handleKeyDown, style: { outline: 'none' } }, children));
+        return (React.createElement("div", { tabIndex: 0, onKeyDown: this.handleKeyDown, style: { outline: 'none' }, ref: this.onRef }, children));
     };
     HotKeys.defaultProps = {
         ttl: 1000

@@ -178,11 +178,15 @@ class HotKeys extends React.PureComponent<IProps> {
       this.props.onBlur();
     }
   }
+  
+  handleRef = (element) => {    
+    element.focus();
+  }
 
   render() {
     const { children } = this.props;
     return (
-      <div tabIndex={0} onKeyDown={this.handleKeyDown} style={{ outline: 'none' }} onBlur={this.handleBlur}>
+      <div tabIndex={0} onKeyDown={this.handleKeyDown} style={{ outline: 'none' }} onBlur={this.handleBlur} ref={this.handleRef}>
         {children}
       </div>
     );

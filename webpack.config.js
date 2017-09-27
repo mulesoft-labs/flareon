@@ -17,7 +17,6 @@ const cfg = {
     extensions: ['.js', '.ts', '.tsx']
   },
 
-
   module: {
     rules: [
       {
