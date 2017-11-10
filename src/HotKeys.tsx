@@ -184,9 +184,9 @@ class HotKeys extends React.PureComponent<IProps> {
   }
 
   render() {
-    const { children } = this.props;
+    const { className = '', style = {}, children } = this.props;
     return (
-      <div tabIndex={0} onKeyDown={this.handleKeyDown} style={{ outline: 'none' }} onBlur={this.handleBlur} ref={this.handleRef}>
+      <div className={className} tabIndex={0} onKeyDown={this.handleKeyDown} style={{ outline: 'none', ...style }} onBlur={this.handleBlur} ref={this.handleRef}>
         {children}
       </div>
     );

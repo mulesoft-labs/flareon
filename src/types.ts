@@ -13,6 +13,8 @@ export interface IProps {
   enabled: boolean;
   ttl?: number;
   onBlur?: () => void;
+  className?: string;
+  style?: IDictionary<string | number>;
 }
 
 export interface IMatcherCatalog {
