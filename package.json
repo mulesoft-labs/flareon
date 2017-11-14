@@ -1,6 +1,6 @@
 {
   "name": "flareon",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "React component for shortcut management.",
   "main": "dist/flareon.js",
   "typings": "dist/typings/index.d.ts",
