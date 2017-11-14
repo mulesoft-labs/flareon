@@ -179,8 +179,10 @@ class HotKeys extends React.PureComponent<IProps> {
     }
   }
   
-  handleRef = (element) => {    
-    element.focus();
+  handleRef = (element) => {  
+    if(element) {
+      element.focus();
+    }  
   }
 
   render() {
