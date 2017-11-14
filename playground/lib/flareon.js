@@ -2262,7 +2262,9 @@ var HotKeys = /** @class */ (function (_super) {
             }
         };
         _this.handleRef = function (element) {
-            element.focus();
+            if (element) {
+                element.focus();
+            }
         };
         return _this;
     }
@@ -2273,8 +2275,8 @@ var HotKeys = /** @class */ (function (_super) {
         this.initializeHandlers(props.handlers);
     };
     HotKeys.prototype.render = function () {
-        var children = this.props.children;
-        return (React.createElement("div", { tabIndex: 0, onKeyDown: this.handleKeyDown, style: { outline: 'none' }, onBlur: this.handleBlur, ref: this.handleRef }, children));
+        var _a = this.props, _b = _a.className, className = _b === void 0 ? '' : _b, _c = _a.style, style = _c === void 0 ? {} : _c, children = _a.children;
+        return (React.createElement("div", { className: className, tabIndex: 0, onKeyDown: this.handleKeyDown, style: __assign({ outline: 'none' }, style), onBlur: this.handleBlur, ref: this.handleRef }, children));
     };
     HotKeys.defaultProps = {
         ttl: 1000
